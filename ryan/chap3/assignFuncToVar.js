@@ -29,6 +29,7 @@ messages[3](messages[2])
 
 const insideFn = logger => logger("함수를 다른 함수에 인자로 넘길 수도 있습니다.");
 // 이거 잘모르겟음...
+// logger 자체가 함수임. 그런데 정의 하는 방식이 좀 헷갈림
 // const insideFn = function (logger) {
 //     return logger("함수를 다른 함수에 인자로 넘길 수도 있습니다.");
 // };
