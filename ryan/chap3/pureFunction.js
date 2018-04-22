@@ -19,8 +19,8 @@ var frederick = {
 const selfEducate = (person) =>
 ({
     ...person,
-    canRead = true,
-    canWrite = true
+    canRead : true,
+    canWrite : true
 })
 
 console.log(selfEducate(frederick))
