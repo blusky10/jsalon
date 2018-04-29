@@ -5,21 +5,21 @@ let schools = [
     {name : "Wakefield"}
 ]
 
-// const editName = (oldName, name, arr) =>
-// arr.map(item => {
-//     if (item.name === oldName) {
-//         return {
-//             ...item,
-//             name
-//         }
-//     } else {
-//         return item
-//     }
-// })
-
 const editName = (oldName, name, arr) =>
-arr.map(item => (item.name === oldName) ?
-({...item, name}) : item)
+arr.map(item => {
+    if (item.name === oldName) {
+        return {
+            ...item,
+            name
+        }
+    } else {
+        return item
+    }
+})
+
+// const editName = (oldName, name, arr) =>
+// arr.map(item => (item.name === oldName) ?
+// ({...item, name}) : item)
 
 let updatedSchools = editName("Startford", "HB Woodlawn", schools)
 
