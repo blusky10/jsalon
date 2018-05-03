@@ -23,3 +23,10 @@ const goal = 'Learning React!'
 **고차원 함수** (high-order function)
  - 함수를 인자로 받는다.
  - 결과로 함수를 반환한다.
+
+### 순수리액트
+**ReactDOM**
+ - 항상 한가지 엘리먼트만 DOM 으로 렌더링할수있다.
+
+**React Component**
+ - React.createClass 
