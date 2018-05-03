@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>4.5 자식</title>
+</head>
+<body>
+    <!-- 타깃 컨테이너-->
+    <div id="react-container"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+    <script>
+        var child = React.createElement(
+            "ul",
+            null,
+            React.createElement("li", null, "연어 500 그램"),
+            React.createElement("li", null, "잣 1컵"),
+            React.createElement("li", null, "버터 상추 2컵"),
+            React.createElement("li", null, "옐로 스쿼시 1개"),
+            React.createElement("li", null, "올리브 오일 1/2컵"),
+            React.createElement("li", null, "마늘 3쪽")
+        )
+
+        ReactDOM.render(
+            child,
+            document.getElementById('react-container')
+        )
+    </script>
+</body>
+</html>
