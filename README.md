@@ -6,6 +6,13 @@ const goal = 'Learning React!'
 현재 보고계신 `Readme.md` 문서에서는 기술관련된 내용을 기술합니다.  
 연구회 진행과 관련된 내용은 Wiki 문서를 참고하시면 됩니다.
 
+## JavaScript
+> JavaScript, often abbreviated as JS, is a high-level, interpreted programming language.
+
+ - Learning
+   - [What is Javascript? (MDN)](https://developer.mozilla.org/ko/docs/Learn/JavaScript/First_steps/What_is_JavaScript)
+   - [JavaScript 기초 (insanehong)](http://insanehong.kr/category/javascript/)
+
 ### 함수 구분
 **순수 함수** (Pure Function)
  - 파라미터에 의해서만 반환값이 결정되는 함수
@@ -24,9 +31,20 @@ const goal = 'Learning React!'
  - 함수를 인자로 받는다.
  - 결과로 함수를 반환한다.
 
+<br>
+
+## React
+> In computing, React (sometimes React.js or ReactJS) is a JavaScript library for building user interfaces.
+
+ - Learning
+   - [누구든지 하는 React (Velopert)](https://velopert.com/3613)
+ - Article
+   - [23 Best React UI Component Frameworks](https://hackernoon.com/23-best-react-ui-component-libraries-and-frameworks-250a81b2ac42)
+   - [React 버전 16+ 총정리](https://www.vobour.com/%EB%A6%AC%EC%95%A1%ED%8A%B8-react-%EB%B2%84%EC%A0%84-16-%EC%B4%9D%EC%A0%95%EB%A6%AC)
+
 ### 순수리액트
 **ReactDOM**
  - 항상 한가지 엘리먼트만 DOM 으로 렌더링할수있다.
 
 **React Component**
- - React.createClass 
+ - React.createClass
