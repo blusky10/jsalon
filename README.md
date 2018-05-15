@@ -10,6 +10,7 @@ const goal = 'Learning React!'
 > JavaScript, often abbreviated as JS, is a high-level, interpreted programming language.
 
  - Learning
+   - [Wikibooks JavaScript](https://en.wikibooks.org/wiki/JavaScript)
    - [What is Javascript? (MDN)](https://developer.mozilla.org/ko/docs/Learn/JavaScript/First_steps/What_is_JavaScript)
    - [JavaScript 기초 (insanehong)](http://insanehong.kr/category/javascript/)
 
