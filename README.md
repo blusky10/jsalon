@@ -49,3 +49,13 @@ const goal = 'Learning React!'
 
 **React Component**
  - React.createClass
+
+## JSX
+- 다른 컴포넌트의 Child 로 컴포넌트를 추가할 수 있다.
+- class 가 예약어 이기 때문에 className을 사용한다.
+- {} 를 사용해서 javascript 를 표현 할 수 있다.
+
+## 바벨
+- 모든 브라우저에서 JSX 를 지원하지 않기 때문에 브라우저가 해석할 수 있는 코드로 변환을 해야 한다. (트랜스파일링)
+- 바벨이 그역할을 한다.
+- 간편하게 HTML에 babel-standalone링크를 포함하면 되지만 프로덕션에서는 좋은 방법은 아님. 이럴 경우 클라이언트가 Script 안의 코드를 실행하기 전에 트랜스파일링을 수행한다.
