@@ -7,7 +7,7 @@ const Menu = ({recipes}) =>
         </header>
         <div className="recipes">
             {recipes.map((recipe, i) =>
-                <Recope key={i} {...recipe} />)
+                <Recipe key={i} {...recipe} />)
             }
         </div>
     </article>
