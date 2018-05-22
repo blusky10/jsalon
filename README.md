@@ -54,16 +54,20 @@ const goal = 'Learning React!'
  - `class` 가 예약어이기 때문에 `className`을 사용한다.
  - `{}` 를 사용해서 javascript 를 표현 할 수 있다.
 
-<br>
+
+
+## Node & npm
+> npm is the package manager for JavaScript and the world’s largest software registry.
+ - [package.json과 package-lock.json의 혼재](https://medium.com/@pyeonjy97/package-json%EA%B3%BC-package-lock-json%EC%9D%98-%ED%98%BC%EC%9E%AC-83b80518c453)
 
 ## Babel
 - 모든 브라우저에서 JSX 를 지원하지 않기 때문에 브라우저가 해석할 수 있는 코드로 변환을 해야 한다. (트랜스파일링)
 - 바벨이 그역할을 한다.
 - 간편하게 HTML에 `babel-standalone` 링크를 포함하면 되지만 프로덕션에서는 좋은 방법은 아님. 이럴 경우 클라이언트가 Script 안의 코드를 실행하기 전에 트랜스파일링을 수행한다.
 
-<br>
-
-## Node & npm
-> npm is the package manager for JavaScript and the world’s largest software registry.
-
- - [package.json과 package-lock.json의 혼재](https://medium.com/@pyeonjy97/package-json%EA%B3%BC-package-lock-json%EC%9D%98-%ED%98%BC%EC%9E%AC-83b80518c453)
+## 웹팩
+- 트랜스파일링
+- 코드 분리
+- 코드축소(minifying) : 공백, 줄바꿈, 긴 변수 이름, 불필요한 코드등을 없애서 파일 크기를 줄여준다.
+- 틍징 켜고 끄기(feature flagging) : 코드의 기능을 테스트 해야 하는 경우 코드를 각각의 환경에 맞춰 보내준다. 
+- HMR(Hot Module replacement) : 소스코드가 바뀌는지 감지해서 변경된 모듈만 반영한다. 
