@@ -71,3 +71,17 @@ const goal = 'Learning React!'
 - 코드축소(minifying) : 공백, 줄바꿈, 긴 변수 이름, 불필요한 코드등을 없애서 파일 크기를 줄여준다.
 - 틍징 켜고 끄기(feature flagging) : 코드의 기능을 테스트 해야 하는 경우 코드를 각각의 환경에 맞춰 보내준다. 
 - HMR(Hot Module replacement) : 소스코드가 바뀌는지 감지해서 변경된 모듈만 반영한다. 
+
+## 웹팩 설치
+- -g 옵션을 주면 global 로 설치하며 옵션이 없을 경우 현재 디렉토리의 ./node_modules 에  설치 된다. 로컬 설치한 모듈만 require를 사용해 바로 읽어올 수 있다.
+- 웹팩 global 설치 : npm install -g webpack
+- preset 설치 : npm install babel-core babel-loader babel-preset-env babel-preset-react babel-preset-stage-0 --save-dev
+- React, ReactDOM 로컬 설치 : npm install react react-dom --save
+
+## --save vs --save-dev
+- --save : 설치한 패키지들이 dependencies 에 나타난다. 
+- --save-dev : 설치한 패키지들이 devDependencies 에 나타난다. 
+- --production 빌드시 dependencies 에 정의되어 있는 항목만 포함하게 된다. 
+
+## 모듈 설치
+- prop-types : npm install prop-types --save
