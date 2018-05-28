@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Summary_no_type</title>
+</head>
+<body>
+    <!-- 타깃 컨테이너-->
+    <div id="react-container"></div>
+
+    <script src="https://unpkg.com/prop-types/prop-types.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    
+    <script type="text/babel">
+        class Summary extends React.Component{
+            static propTypes ={
+                ingredients: PropTypes.number,
+                steps: PropTypes.number,
+                title: PropTypes.string
+            }
+
+            static defaultProps ={
+                ingredients: 0,
+                steps: 0,
+                title: '기본 타이틀'
+            }
+            render(){
+                const {ingredients, steps, title} = this.props
+
+                return (
+                    <div className="summary">
+                        <h1>{title}</h1>
+                        <p>
+                            <span>재료 {ingredients} 종류 | </span>
+                            <span>총 {steps} 단계 </span>
+                        </p>
+                    </div>
+                )
+            }
+        }
+            
+        ReactDOM.render(
+            <Summary  />,
+            document.getElementById('react-container')
+        )
+    </script>
+</body>
+</html>
