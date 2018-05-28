@@ -14,11 +14,15 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
     
     <script type="text/babel">
-    
         class Summary extends React.Component{
-
+            static propTypes ={
+                ingredients: PropTypes.array,
+                steps: PropTypes.array,
+                title: PropTypes.string
+            }
             render(){
                 const {ingredients, steps, title} = this.props
+
                 return (
                     <div className="summary">
                         <h1>{title}</h1>
