@@ -43,19 +43,45 @@ const goal = 'Learning React!'
    - [23 Best React UI Component Frameworks](https://hackernoon.com/23-best-react-ui-component-libraries-and-frameworks-250a81b2ac42)
    - [React 버전 16+ 총정리](https://www.vobour.com/%EB%A6%AC%EC%95%A1%ED%8A%B8-react-%EB%B2%84%EC%A0%84-16-%EC%B4%9D%EC%A0%95%EB%A6%AC)
 
-### 순수리액트
-**ReactDOM**
- - 항상 한가지 엘리먼트만 DOM 으로 렌더링할수있다.
+### 순수 리액트
+ - ReactDOM
+   - 항상 한가지 엘리먼트만 DOM 으로 렌더링할수있다.
+ - React Component
+   - `React.createClass`
 
-**React Component**
- - React.createClass
+### JSX
+ - 다른 컴포넌트의 Child 로 컴포넌트를 추가할 수 있다.
+ - `class` 가 예약어이기 때문에 `className`을 사용한다.
+ - `{}` 를 사용해서 javascript 를 표현 할 수 있다.
 
-## JSX
-- 다른 컴포넌트의 Child 로 컴포넌트를 추가할 수 있다.
-- class 가 예약어 이기 때문에 className을 사용한다.
-- {} 를 사용해서 javascript 를 표현 할 수 있다.
 
-## 바벨
+
+## Node & npm
+> npm is the package manager for JavaScript and the world’s largest software registry.
+ - [package.json과 package-lock.json의 혼재](https://medium.com/@pyeonjy97/package-json%EA%B3%BC-package-lock-json%EC%9D%98-%ED%98%BC%EC%9E%AC-83b80518c453)
+
+## Babel
 - 모든 브라우저에서 JSX 를 지원하지 않기 때문에 브라우저가 해석할 수 있는 코드로 변환을 해야 한다. (트랜스파일링)
 - 바벨이 그역할을 한다.
-- 간편하게 HTML에 babel-standalone링크를 포함하면 되지만 프로덕션에서는 좋은 방법은 아님. 이럴 경우 클라이언트가 Script 안의 코드를 실행하기 전에 트랜스파일링을 수행한다.
+- 간편하게 HTML에 `babel-standalone` 링크를 포함하면 되지만 프로덕션에서는 좋은 방법은 아님. 이럴 경우 클라이언트가 Script 안의 코드를 실행하기 전에 트랜스파일링을 수행한다.
+
+## 웹팩
+- 트랜스파일링
+- 코드 분리
+- 코드축소(minifying) : 공백, 줄바꿈, 긴 변수 이름, 불필요한 코드등을 없애서 파일 크기를 줄여준다.
+- 틍징 켜고 끄기(feature flagging) : 코드의 기능을 테스트 해야 하는 경우 코드를 각각의 환경에 맞춰 보내준다. 
+- HMR(Hot Module replacement) : 소스코드가 바뀌는지 감지해서 변경된 모듈만 반영한다. 
+
+## 웹팩 설치
+- -g 옵션을 주면 global 로 설치하며 옵션이 없을 경우 현재 디렉토리의 ./node_modules 에  설치 된다. 로컬 설치한 모듈만 require를 사용해 바로 읽어올 수 있다.
+- 웹팩 global 설치 : npm install -g webpack
+- preset 설치 : npm install babel-core babel-loader babel-preset-env babel-preset-react babel-preset-stage-0 --save-dev
+- React, ReactDOM 로컬 설치 : npm install react react-dom --save
+
+## --save vs --save-dev
+- --save : 설치한 패키지들이 dependencies 에 나타난다. 
+- --save-dev : 설치한 패키지들이 devDependencies 에 나타난다. 
+- --production 빌드시 dependencies 에 정의되어 있는 항목만 포함하게 된다. 
+
+## 모듈 설치
+- prop-types : npm install prop-types --save

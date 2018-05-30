@@ -68,7 +68,11 @@ fabric.properties
 
 .idea/*
 
-/ryan/chap3/node_modules
+### Node ###
+/node/
+node_tmp/
+node_modules/
+npm-debug.log.*
 
 # End of https://www.gitignore.io/api/intellij
 
