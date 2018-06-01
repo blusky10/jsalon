@@ -81,4 +81,4 @@ npm-debug.log.*
 node_modules
 .vscode
 .vscode/*
-.package-lock.json
+package-lock.json
