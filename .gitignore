@@ -75,3 +75,10 @@ node_modules/
 npm-debug.log.*
 
 # End of https://www.gitignore.io/api/intellij
+
+
+# user
+node_modules
+.vscode
+.vscode/*
+package-lock.json
