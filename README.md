@@ -54,8 +54,6 @@ const goal = 'Learning React!'
  - `class` 가 예약어이기 때문에 `className`을 사용한다.
  - `{}` 를 사용해서 javascript 를 표현 할 수 있다.
 
-
-
 ## Node & npm
 > npm is the package manager for JavaScript and the world’s largest software registry.
  - [package.json과 package-lock.json의 혼재](https://medium.com/@pyeonjy97/package-json%EA%B3%BC-package-lock-json%EC%9D%98-%ED%98%BC%EC%9E%AC-83b80518c453)
