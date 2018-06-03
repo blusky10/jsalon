@@ -32,6 +32,38 @@ const goal = 'Learning React!'
  - 함수를 인자로 받는다.
  - 결과로 함수를 반환한다.
 
+### 함수 호출 유형
+ - **전역 함수로 호출** : `this` 레퍼런스는 전역 객체, 또는 `undefined`(엄격모드)를 가리킵니다.
+   ```js
+   function doWork() {
+     // this 레퍼런스는 전역 객체를 가리킵니다.
+     this.myVar = 'Some Var';
+   }
+
+   doWork();
+   ```
+ - **메서드로 호출** : `this` 레퍼런스는 해당 메서드를 소유한 객체입니다.
+   ```js
+   var obj = {
+     prop: 'Some Prop',
+     getProp: function() {
+       // 객체 메서드 호출 시 this는 소유 객체를 가리킵니다.
+       return this.prop
+     }
+   };
+   
+   obj.getProp();
+   ```
+ - **앞에 `new`를 붙여 생성자로 호출** : 새로 만든 객체의 레퍼런스를 암시적으로 반환합니다.
+   ```js
+   function MyType(arg) {
+     // 함수를 new로 호출할 경우 this가 가리키는 것은 방금 전 생성되어 암시적으로 반환된 객체입니다.
+     this.prop = arg;
+   }
+
+   var someVal = new MyType('Some Arg');
+   ```
+
 <br>
 
 ## React
@@ -54,34 +86,34 @@ const goal = 'Learning React!'
  - `class` 가 예약어이기 때문에 `className`을 사용한다.
  - `{}` 를 사용해서 javascript 를 표현 할 수 있다.
 
-
+<br>
 
 ## Node & npm
 > npm is the package manager for JavaScript and the world’s largest software registry.
  - [package.json과 package-lock.json의 혼재](https://medium.com/@pyeonjy97/package-json%EA%B3%BC-package-lock-json%EC%9D%98-%ED%98%BC%EC%9E%AC-83b80518c453)
 
-## Babel
+### Babel
 - 모든 브라우저에서 JSX 를 지원하지 않기 때문에 브라우저가 해석할 수 있는 코드로 변환을 해야 한다. (트랜스파일링)
 - 바벨이 그역할을 한다.
 - 간편하게 HTML에 `babel-standalone` 링크를 포함하면 되지만 프로덕션에서는 좋은 방법은 아님. 이럴 경우 클라이언트가 Script 안의 코드를 실행하기 전에 트랜스파일링을 수행한다.
 
-## 웹팩
+### 웹팩
 - 트랜스파일링
 - 코드 분리
 - 코드축소(minifying) : 공백, 줄바꿈, 긴 변수 이름, 불필요한 코드등을 없애서 파일 크기를 줄여준다.
 - 틍징 켜고 끄기(feature flagging) : 코드의 기능을 테스트 해야 하는 경우 코드를 각각의 환경에 맞춰 보내준다. 
 - HMR(Hot Module replacement) : 소스코드가 바뀌는지 감지해서 변경된 모듈만 반영한다. 
 
-## 웹팩 설치
+### 웹팩 설치
 - -g 옵션을 주면 global 로 설치하며 옵션이 없을 경우 현재 디렉토리의 ./node_modules 에  설치 된다. 로컬 설치한 모듈만 require를 사용해 바로 읽어올 수 있다.
 - 웹팩 global 설치 : npm install -g webpack
 - preset 설치 : npm install babel-core babel-loader babel-preset-env babel-preset-react babel-preset-stage-0 --save-dev
 - React, ReactDOM 로컬 설치 : npm install react react-dom --save
 
-## --save vs --save-dev
+### --save vs --save-dev
 - --save : 설치한 패키지들이 dependencies 에 나타난다. 
 - --save-dev : 설치한 패키지들이 devDependencies 에 나타난다. 
 - --production 빌드시 dependencies 에 정의되어 있는 항목만 포함하게 된다. 
 
-## 모듈 설치
+### 모듈 설치
 - prop-types : npm install prop-types --save
