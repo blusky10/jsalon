@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Star Component</title>
+</head>
+<body>
+    <!-- 타깃 컨테이너-->
+    <div id="react-container"></div>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://unpkg.com/node-uuid@1.4.8/uuid.js"></script>
+    <script src="https://unpkg.com/prop-types/prop-types.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    
+    <script type="text/babel">
+
+        const Star = ({selected=false, onClick=f=>f}) =>
+            <div className={(selected)?"star selected" : "star"} 
+                onClick={onClick}>
+            </div> 
+
+        Star.propTypes = {
+            selected: PropTypes.bool,
+            onClick: PropTypes.func
+        }
+
+        const StarRating = ({starsSelected=0, totalStars=5, onRate=f=>f})=>
+            <div className="star-rating">
+                {[...Array(totalStars)].map((n,i) =>
+                    <Star key={i} selected={i<starsSelected} onClick={()=>onRate(i+1)} />
+                )}
+                <p>별점 : {starsSelected} / {totalStars} </p>
+            </div>
+        
+        const ColorList = ({colors = [], onRate=f=>f, onRemove=f=>f}) =>
+            <div className="color-list">
+                {
+                    (colors.length ===0)?
+                        <p>색이 없습니다. (색을 추가해주세요) </p>:
+                        colors.map(color =>
+                            <Color key={color.id} {...color} 
+                                onRate={(rating)=>onRate(color.id, rating)}
+                                onRemove={()=>onRemove(color.id)}
+                            />
+                        )
+                }
+            </div>
+
+        const Color = ({title, color, rating=0, onRemove=f=>f, onRate=f=>f}) =>
+            <selection className="color">
+                <h1>{title}</h1>
+                <button onClick={onRemove}>X</button>
+                <div className="color" style={{backgroundColor: color}}>
+                </div>
+                <div>
+                    <StarRating starsSelected={rating} onRate={onRate}/>
+                </div>
+            </selection>
+        
+        class App extends React.Component{
+            constructor(props) {
+                super(props)
+                this.state = {
+                    colors:[]
+                }
+                this.addColor = this.addColor.bind(this)
+                this.rateColor = this.rateColor.bind(this)
+                this.removeColor = this.removeColor.bind(this)
+            }
+
+            addColor(title, color){
+                this.setState(prevState => ({
+                    colors: [
+                        ...prevState.colors,
+                        {
+                            id: uuid.v4(),
+                            title,
+                            color,
+                            rating: 0
+                        }
+                    ]
+                }))
+            }
+
+            rateColor(id, rating) {
+                this.setState(prevState => ({
+                    colors: prevState.colors.map(color =>
+                        (color.id !== id) ?
+                            color :
+                            {
+                                ...color,
+                                rating
+                            }
+                    )
+                }))
+            }
+
+            removeColor(id) {
+                this.setState(prevState => ({
+                colors: prevState.colors.filter(color => color.id !== id)
+                }))
+            }
+
+
+            render(){
+                const {addColor, rateColor, removeColor} = this
+                const {colors} = this.state
+                return (
+                    <div className="app">
+                        <AddColorForm onNewColor={addColor}/>
+                        <ColorList colors={colors} 
+                                    onRate={rateColor}
+                                    onRemove={removeColor}
+                                    />
+                    </div>
+                )
+            }
+        }
+
+        class AddColorForm extends React.Component{
+            constructor(props){
+                super(props)
+                this.submit = this.submit.bind(this)                
+            }
+
+            submit(e){
+                const {_title, _color} = this.refs
+                e.preventDefault();
+                this.props.onNewColor(_title.value, _color.value)
+                _title.value='';
+                _color.value='#00000';
+                _title.focus();
+            }            
+            render(){
+                return (
+                    <form onSubmit={this.submit}>
+                        <input ref="_title"
+                                type="text"
+                                placeholder="색이름 ..." required />
+                        <input  ref="_color"
+                                type="color" required />
+                        <button>추가</button>
+                    </form>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <App />,
+            document.getElementById('react-container')
+        )
+    </script>
+</body>
+</html>
